@@ -51,10 +51,45 @@ func TestPath(t *testing.T) {
 	}
 }
 func TestDetail(t *testing.T) {
-	newCMS := NewCMS(host1)
+	newCMS := NewCMS(host2)
+	newCMS.SetApiPath("/provide/vod/at/json", "/provide/vod/at/json")
 	Detail, err := newCMS.Detail(27540)
 	if err == nil {
 		fmt.Println(Detail.VodName)
+	} else {
+		t.Fatal(err)
+	}
+}
+func TestDetailList(t *testing.T) {
+	newCMS := NewCMS(host3)
+	list, err := newCMS.DetailList(nil, 0, 1, 0, "蜡笔小新")
+	if err == nil {
+		for _, video := range list.VideoInfoList {
+			fmt.Println(video.VodName)
+		}
+	} else {
+		t.Fatal(err)
+	}
+}
+func TestHOSTS(t *testing.T) {
+	//天空 https://m3u8.tiankongapi.com/api.php/provide/vod/from/tkm3u8/?ac=list
+	newCMS := NewCMS("https://m3u8.tiankongapi.com")
+	newCMS.SetApiPath("/api.php/provide/vod/from/tkm3u8/?ac=list", "/api.php/provide/vod/from/tkm3u8/?ac=detail")
+	list, err := newCMS.DetailList(nil, 0, 1, 0, "蜡笔小新")
+	if err == nil {
+		for _, video := range list.VideoInfoList {
+			fmt.Println(video.VodName)
+		}
+	} else {
+		t.Fatal(err)
+	}
+	//百度 https://api.apibdzy.com/api.php/provide/art/?ac=list
+	newCMS = NewCMS("https://api.apibdzy.com")
+	list, err = newCMS.DetailList(nil, 0, 1, 0, "蜡笔小新")
+	if err == nil {
+		for _, video := range list.VideoInfoList {
+			fmt.Println(video.VodName)
+		}
 	} else {
 		t.Fatal(err)
 	}

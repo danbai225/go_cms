@@ -62,14 +62,14 @@ type VideoList struct {
 }
 
 type VideoInfo struct {
-	VodId            int    `json:"vod_id"`
-	TypeId           int    `json:"type_id"`
-	TypeId1          int    `json:"type_id_1"`
-	GroupId          int    `json:"group_id"`
-	VodName          string `json:"vod_name"`
-	VodSub           string `json:"vod_sub"`
-	VodEn            string `json:"vod_en"`
-	VodStatus        int    `json:"vod_status"`
+	VodId   int    `json:"vod_id"`
+	TypeId  int    `json:"type_id"`
+	TypeId1 int    `json:"type_id_1"`
+	GroupId int    `json:"group_id"`
+	VodName string `json:"vod_name"`
+	VodSub  string `json:"vod_sub"`
+	VodEn   string `json:"vod_en"`
+	//VodStatus        int    `json:"vod_status"`
 	VodLetter        string `json:"vod_letter"`
 	VodColor         string `json:"vod_color"`
 	VodTag           string `json:"vod_tag"`
@@ -85,66 +85,70 @@ type VideoInfo struct {
 	VodBlurb         string `json:"vod_blurb"`
 	VodRemarks       string `json:"vod_remarks"`
 	VodPubdate       string `json:"vod_pubdate"`
-	VodTotal         int    `json:"vod_total"`
-	VodSerial        string `json:"vod_serial"`
-	VodTv            string `json:"vod_tv"`
-	VodWeekday       string `json:"vod_weekday"`
-	VodArea          string `json:"vod_area"`
-	VodLang          string `json:"vod_lang"`
-	VodYear          string `json:"vod_year"`
-	VodVersion       string `json:"vod_version"`
-	VodState         string `json:"vod_state"`
-	VodAuthor        string `json:"vod_author"`
-	VodJumpUrl       string `json:"vod_jumpurl"`
-	VodTpl           string `json:"vod_tpl"`
-	VodTplPlay       string `json:"vod_tpl_play"`
-	VodTplDown       string `json:"vod_tpl_down"`
-	VodISend         int    `json:"vod_isend"`
-	VodLock          int    `json:"vod_lock"`
-	VodLevel         int    `json:"vod_level"`
-	VodCopyright     int    `json:"vod_copyright"`
-	VodPoints        int    `json:"vod_points"`
-	VodPointsPlay    int    `json:"vod_points_play"`
-	VodPointsDown    int    `json:"vod_points_down"`
-	VodHits          int    `json:"vod_hits"`
-	VodHitsDay       int    `json:"vod_hits_day"`
-	VodHitsWeek      int    `json:"vod_hits_week"`
-	VodHitsMonth     int    `json:"vod_hits_month"`
-	VodDuration      string `json:"vod_duration"`
-	VodUp            int    `json:"vod_up"`
-	VodDown          int    `json:"vod_down"`
-	VodScore         string `json:"vod_score"`
-	VodScoreAll      int    `json:"vod_score_all"`
-	VodScoreNum      int    `json:"vod_score_num"`
-	VodTime          string `json:"vod_time"`
-	VodTimeAdd       int    `json:"vod_time_add"`
-	VodTimeHits      int    `json:"vod_time_hits"`
-	VodTimeMake      int    `json:"vod_time_make"`
-	VodTrySee        int    `json:"vod_trysee"`
-	VodDouBanId      int    `json:"vod_douban_id"`
-	VodDouBanScore   string `json:"vod_douban_score"`
-	VodReUrl         string `json:"vod_reurl"`
-	VodRelVod        string `json:"vod_rel_vod"`
-	VodRelArt        string `json:"vod_rel_art"`
-	VodPwd           string `json:"vod_pwd"`
-	VodPwdUrl        string `json:"vod_pwd_url"`
-	VodPwdPlay       string `json:"vod_pwd_play"`
-	VodPwdPlayUrl    string `json:"vod_pwd_play_url"`
-	VodPwdDown       string `json:"vod_pwd_down"`
-	VodPwdDownUrl    string `json:"vod_pwd_down_url"`
-	VodContent       string `json:"vod_content"`
-	VodPlayFrom      string `json:"vod_play_from"`
-	VodPlayServer    string `json:"vod_play_server"`
-	VodPlayNote      string `json:"vod_play_note"`
-	VodPlayUrl       string `json:"vod_play_url"`
-	VodDownFrom      string `json:"vod_down_from"`
-	VodDownServer    string `json:"vod_down_server"`
-	VodDownNote      string `json:"vod_down_note"`
-	VodDownUrl       string `json:"vod_down_url"`
-	VodPlot          int    `json:"vod_plot"`
-	VodPlotName      string `json:"vod_plot_name"`
-	VodPlotDetail    string `json:"vod_plot_detail"`
-	TypeName         string `json:"type_name"`
+	//VodTotal         int    `json:"vod_total"`
+	VodSerial      string `json:"vod_serial"`
+	VodTv          string `json:"vod_tv"`
+	VodWeekday     string `json:"vod_weekday"`
+	VodArea        string `json:"vod_area"`
+	VodLang        string `json:"vod_lang"`
+	VodYear        string `json:"vod_year"`
+	VodVersion     string `json:"vod_version"`
+	VodState       string `json:"vod_state"`
+	VodAuthor      string `json:"vod_author"`
+	VodJumpUrl     string `json:"vod_jumpurl"`
+	VodTpl         string `json:"vod_tpl"`
+	VodTplPlay     string `json:"vod_tpl_play"`
+	VodTplDown     string `json:"vod_tpl_down"`
+	VodISend       int    `json:"vod_isend"`
+	VodLock        int    `json:"vod_lock"`
+	VodLevel       int    `json:"vod_level"`
+	VodCopyright   int    `json:"vod_copyright"`
+	VodPoints      int    `json:"vod_points"`
+	VodPointsPlay  int    `json:"vod_points_play"`
+	VodPointsDown  int    `json:"vod_points_down"`
+	VodHits        int    `json:"vod_hits"`
+	VodHitsDay     int    `json:"vod_hits_day"`
+	VodHitsWeek    int    `json:"vod_hits_week"`
+	VodHitsMonth   int    `json:"vod_hits_month"`
+	VodDuration    string `json:"vod_duration"`
+	VodUp          int    `json:"vod_up"`
+	VodDown        int    `json:"vod_down"`
+	VodScore       string `json:"vod_score"`
+	VodScoreAll    int    `json:"vod_score_all"`
+	VodScoreNum    int    `json:"vod_score_num"`
+	VodTime        string `json:"vod_time"`
+	VodTimeAdd     int    `json:"vod_time_add"`
+	VodTimeHits    int    `json:"vod_time_hits"`
+	VodTimeMake    int    `json:"vod_time_make"`
+	VodTrySee      int    `json:"vod_trysee"`
+	VodDouBanId    int    `json:"vod_douban_id"`
+	VodDouBanScore string `json:"vod_douban_score"`
+	VodReUrl       string `json:"vod_reurl"`
+	VodRelVod      string `json:"vod_rel_vod"`
+	VodRelArt      string `json:"vod_rel_art"`
+	VodPwd         string `json:"vod_pwd"`
+	VodPwdUrl      string `json:"vod_pwd_url"`
+	VodPwdPlay     string `json:"vod_pwd_play"`
+	VodPwdPlayUrl  string `json:"vod_pwd_play_url"`
+	VodPwdDown     string `json:"vod_pwd_down"`
+	VodPwdDownUrl  string `json:"vod_pwd_down_url"`
+	VodContent     string `json:"vod_content"`
+	VodPlayFrom    string `json:"vod_play_from"`
+	VodPlayServer  string `json:"vod_play_server"`
+	VodPlayNote    string `json:"vod_play_note"`
+	VodPlayUrl     string `json:"vod_play_url"`
+	VodDownFrom    string `json:"vod_down_from"`
+	VodDownServer  string `json:"vod_down_server"`
+	VodDownNote    string `json:"vod_down_note"`
+	VodDownUrl     string `json:"vod_down_url"`
+	VodPlot        int    `json:"vod_plot"`
+	VodPlotName    string `json:"vod_plot_name"`
+	VodPlotDetail  string `json:"vod_plot_detail"`
+	TypeName       string `json:"type_name"`
+}
+type VideoInfoList struct {
+	*List
+	VideoInfoList []*VideoInfo `json:"list"`
 }
 
 type cms struct {
@@ -164,6 +168,7 @@ func (c *cms) SetApiPath(listApi, detailApi string) {
 	c.listApi = listApi
 }
 func (c *cms) Get(url string) ([]byte, error) {
+	//println(url)
 	get, err := http.Get(url)
 	if err != nil {
 		return nil, err
@@ -207,26 +212,40 @@ func (c *cms) NewList(ids []int, Type, page, hour int) (*VideoList, error) {
 	return data, err
 }
 func (c *cms) Detail(id int64) (*VideoInfo, error) {
-	data := new(VideoInfo)
+	l := new(VideoInfoList)
+	v := new(VideoInfo)
 	get, err := c.Get(fmt.Sprintf("%s%s&ids=%d", c.host, c.detailApi, id))
 	if err != nil {
-		return data, err
+		return v, err
 	}
 	get = bytes.ReplaceAll(get, []byte("\n"), []byte{})
-	err = json.Unmarshal(get, data)
-	return data, err
+	err = json.Unmarshal(get, l)
+	if err == nil {
+		l.flx(get)
+		if len(l.VideoInfoList) > 0 {
+			v = l.VideoInfoList[0]
+		}
+	}
+	return v, err
 }
 
-func (c *cms) DetailList() {
-
-}
-func getInt(i interface{}) int64 {
-	if v, ok := i.(int); ok {
-		return int64(v)
+func (c *cms) DetailList(ids []int, Type, page, hour int, key string) (*VideoInfoList, error) {
+	strIdArr := make([]string, 0)
+	if ids != nil {
+		for _, id := range ids {
+			strIdArr = append(strIdArr, strconv.Itoa(id))
+		}
 	}
-	if v, ok := i.(string); ok {
-		num, _ := strconv.ParseInt(v, 10, 64)
-		return num
+	idsStr := strings.Join(strIdArr, ",")
+	l := new(VideoInfoList)
+	get, err := c.Get(fmt.Sprintf("%s%s&ids=%s&t=%d&pg=%d&h=%d&wd=%s", c.host, c.detailApi, idsStr, Type, page, hour, key))
+	if err != nil {
+		return l, err
 	}
-	return 0
+	get = bytes.ReplaceAll(get, []byte("\n"), []byte{})
+	err = json.Unmarshal(get, l)
+	if err == nil {
+		l.flx(get)
+	}
+	return l, err
 }
