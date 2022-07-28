@@ -7,6 +7,7 @@ import (
 	"github.com/tidwall/gjson"
 	"io/ioutil"
 	"net/http"
+	"net/url"
 	"strconv"
 	"strings"
 )
@@ -151,20 +152,32 @@ type cms struct {
 	host      string //服务地址
 	listApi   string
 	detailApi string
+	client    http.Client
 }
 
 func NewCMS(host string) *cms {
 	c := cms{host: host}
 	c.listApi = listApi
 	c.detailApi = detailApi
+	c.client = http.Client{}
 	return &c
 }
 func (c *cms) SetApiPath(listApi, detailApi string) {
 	c.detailApi = detailApi
 	c.listApi = listApi
 }
-func (c *cms) Get(url string) ([]byte, error) {
-	get, err := http.Get(url)
+func (c *cms) SetProxy(url *url.URL) {
+	c.client.Transport = &http.Transport{
+		// 设置代理
+		Proxy: http.ProxyURL(url),
+	}
+}
+func (c *cms) Get(url1 string) ([]byte, error) {
+	request, err := http.NewRequest("GET", url1, nil)
+	if err != nil {
+		return nil, err
+	}
+	get, err := c.client.Do(request)
 	if err != nil {
 		return nil, err
 	}
@@ -219,14 +232,4 @@ func (c *cms) Detail(id int64) (*VideoInfo, error) {
 
 func (c *cms) DetailList() {
 
-}
-func getInt(i interface{}) int64 {
-	if v, ok := i.(int); ok {
-		return int64(v)
-	}
-	if v, ok := i.(string); ok {
-		num, _ := strconv.ParseInt(v, 10, 64)
-		return num
-	}
-	return 0
 }
