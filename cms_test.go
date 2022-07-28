@@ -3,6 +3,7 @@ package go_cms
 import (
 	"encoding/json"
 	"fmt"
+	"net/url"
 	"testing"
 )
 
@@ -88,6 +89,19 @@ func TestHOSTS(t *testing.T) {
 	list, err = newCMS.DetailList(nil, 0, 1, 0, "蜡笔小新")
 	if err == nil {
 		for _, video := range list.VideoInfoList {
+			fmt.Println(video.VodName)
+		}
+	} else {
+		t.Fatal(err)
+	}
+}
+func TestProxy(t *testing.T) {
+	newCMS := NewCMS(host1)
+	parse, _ := url.Parse("http://127.0.0.1:5216")
+	newCMS.SetProxy(parse)
+	newList, err := newCMS.NewList(nil, 0, 1, 0)
+	if err == nil {
+		for _, video := range newList.VideoList {
 			fmt.Println(video.VodName)
 		}
 	} else {
