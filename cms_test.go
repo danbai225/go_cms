@@ -95,6 +95,62 @@ func TestHOSTS(t *testing.T) {
 		t.Fatal(err)
 	}
 }
+func TestPlaylist(t *testing.T) {
+	//天空 https://m3u8.tiankongapi.com/api.php/provide/vod/from/tkm3u8/?ac=list
+	newCMS := NewCMS("https://m3u8.tiankongapi.com")
+	newCMS.SetApiPath("/api.php/provide/vod/from/tkm3u8/?ac=list", "/api.php/provide/vod/from/tkm3u8/?ac=detail")
+	list, err := newCMS.DetailList(nil, 0, 1, 0, "")
+	if err == nil {
+		for _, video := range list.VideoInfoList {
+			playlist := video.GetPlaylist()
+			fmt.Println(video.VodName, len(playlist))
+		}
+	} else {
+		t.Fatal(err)
+	}
+	//百度 https://api.apibdzy.com/api.php/provide/art/?ac=list
+	newCMS = NewCMS("https://api.apibdzy.com")
+	list, err = newCMS.DetailList(nil, 0, 1, 0, "")
+	if err == nil {
+		for _, video := range list.VideoInfoList {
+			playlist := video.GetPlaylist()
+			fmt.Println(video.VodName, len(playlist))
+		}
+	} else {
+		t.Fatal(err)
+	}
+	newCMS = NewCMS(host1)
+	list, err = newCMS.DetailList(nil, 0, 1, 0, "")
+	if err == nil {
+		for _, video := range list.VideoInfoList {
+			playlist := video.GetPlaylist()
+			fmt.Println(video.VodName, len(playlist))
+		}
+	} else {
+		t.Fatal(err)
+	}
+	newCMS = NewCMS(host2)
+	newCMS.SetApiPath("/provide/vod/at/json", "/provide/vod/at/json")
+	list, err = newCMS.DetailList(nil, 0, 1, 0, "")
+	if err == nil {
+		for _, video := range list.VideoInfoList {
+			playlist := video.GetPlaylist()
+			fmt.Println(video.VodName, len(playlist))
+		}
+	} else {
+		t.Fatal(err)
+	}
+	newCMS = NewCMS(host3)
+	list, err = newCMS.DetailList(nil, 0, 1, 0, "")
+	if err == nil {
+		for _, video := range list.VideoInfoList {
+			playlist := video.GetPlaylist()
+			fmt.Println(video.VodName, len(playlist))
+		}
+	} else {
+		t.Fatal(err)
+	}
+}
 func TestProxy(t *testing.T) {
 	newCMS := NewCMS(host1)
 	parse, _ := url.Parse("http://127.0.0.1:5216")

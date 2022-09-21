@@ -147,6 +147,37 @@ type VideoInfo struct {
 	VodPlotDetail  string `json:"vod_plot_detail"`
 	TypeName       string `json:"type_name"`
 }
+
+type UrlList struct {
+	Name string `json:"name"`
+	Url  string `json:"url"`
+}
+
+func (v *VideoInfo) GetPlaylist() []*UrlList {
+	playlists := make([]*UrlList, 0)
+	split1 := strings.Split(v.VodPlayUrl, "#")
+	for _, s := range split1 {
+		s2 := strings.Split(s, "$")
+		playlists = append(playlists, &UrlList{
+			Name: s2[0],
+			Url:  s2[1],
+		})
+	}
+	return playlists
+}
+func (v *VideoInfo) GetDownloadList() []*UrlList {
+	playlists := make([]*UrlList, 0)
+	split1 := strings.Split(v.VodDownUrl, "#")
+	for _, s := range split1 {
+		s2 := strings.Split(s, "$")
+		playlists = append(playlists, &UrlList{
+			Name: s2[0],
+			Url:  s2[1],
+		})
+	}
+	return playlists
+}
+
 type VideoInfoList struct {
 	*List
 	VideoInfoList []*VideoInfo `json:"list"`
